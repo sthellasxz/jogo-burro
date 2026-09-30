@@ -28,9 +28,9 @@ sem internet: um jogador cria a partida (anfitrião) e os outros entram.
 
 | Nome | GitHub |
 |---|---|
-| _<Integrante 1>_ | [@usuario1](https://github.com/usuario1) |
-| _<Integrante 2>_ | [@usuario2](https://github.com/usuario2) |
-| _<Integrante 3>_ | [@usuario3](https://github.com/usuario3) |
+| _<sthella>_ | [@usuario1](https://github.com/sthellasxz) |
+| _<luiza 2>_ | [@usuario2](https://github.com/luizalimaam) |
+| _<maria luiza  3>_ | [@usuario3](https://github.com/maluffreitass77) |
 
 ---
 
