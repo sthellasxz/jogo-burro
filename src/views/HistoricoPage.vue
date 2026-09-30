@@ -24,6 +24,7 @@
       </div>
 
       <ion-list v-else class="largura-maxima">
+        <resumo-historico :partidas="partidas" />
         <ion-item-sliding v-for="p in partidas" :key="p.id">
           <ion-item button :detail="true" :router-link="`/historico/${p.id}`">
             <div slot="start" class="emoji" aria-hidden="true">{{ EMOJI[p.resultadoLocal] }}</div>
@@ -76,6 +77,7 @@ import {
 } from '@ionic/vue';
 import { downloadOutline, timeOutline, trashOutline } from 'ionicons/icons';
 import { ref } from 'vue';
+import ResumoHistorico from '@/components/ResumoHistorico.vue';
 import { exportarHistorico, historico, type RegistroPartida } from '@/storage';
 import { confirmar, erro, mostrarAviso } from '@/ui/avisos';
 import { COR_STATUS, EMOJI, ROTULO_RESULTADO, dataHora } from './formatacao';
