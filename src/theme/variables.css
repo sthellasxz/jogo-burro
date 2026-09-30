@@ -1,0 +1,60 @@
+/* Tema do Burro: mesa de feltro verde + cartas creme. Fontes do sistema (app funciona offline). */
+:root {
+  --ion-font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+
+  --ion-color-primary: #1d6b47;
+  --ion-color-primary-rgb: 29, 107, 71;
+  --ion-color-primary-contrast: #ffffff;
+  --ion-color-primary-contrast-rgb: 255, 255, 255;
+  --ion-color-primary-shade: #1a5e3e;
+  --ion-color-primary-tint: #347a59;
+
+  --ion-color-secondary: #e0a526;
+  --ion-color-secondary-rgb: 224, 165, 38;
+  --ion-color-secondary-contrast: #231a05;
+  --ion-color-secondary-contrast-rgb: 35, 26, 5;
+  --ion-color-secondary-shade: #c59121;
+  --ion-color-secondary-tint: #e3ae3c;
+
+  --mesa: #1f5a3f;
+  --mesa-escura: #163f2c;
+  --mesa-texto: #f3efe2;
+  --carta-fundo: #fffaf0;
+  --carta-borda: #d9d0bb;
+  --carta-vermelha: #c0392b;
+  --carta-preta: #1e1e1e;
+  --destaque: #ffd166;
+  --perigo: #e5484d;
+}
+
+/* Botão de confirmação destrutiva nos alertas */
+.alerta-perigo {
+  color: var(--ion-color-danger) !important;
+}
+
+.mesa {
+  --background: radial-gradient(ellipse at 50% 30%, var(--mesa) 0%, var(--mesa-escura) 100%);
+  --color: var(--mesa-texto);
+  color: var(--mesa-texto);
+}
+
+.titulo-jogo {
+  font-weight: 900;
+  letter-spacing: 0.12em;
+}
+
+.centro-vazio {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  gap: 12px;
+  padding: 32px 16px;
+  color: var(--ion-color-medium);
+}
+
+.largura-maxima {
+  max-width: 560px;
+  margin: 0 auto;
+}

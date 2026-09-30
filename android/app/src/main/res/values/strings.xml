@@ -1,0 +1,7 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
+    <string name="app_name">Burro</string>
+    <string name="title_activity_main">Burro</string>
+    <string name="package_name">com.jogoburro.app</string>
+    <string name="custom_url_scheme">com.jogoburro.app</string>
+</resources>
