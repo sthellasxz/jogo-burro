@@ -90,7 +90,7 @@
             <p v-else class="espera">Aguardando o anfitrião distribuir a próxima mão…</p>
           </template>
           <ion-button
-            v-else-if="minhaVez && !v.pausada"
+            v-else-if="minhaVez && !v.pausada && v.fase === 'jogando'"
             expand="block"
             color="light"
             :disabled="!selecionada"
@@ -99,7 +99,14 @@
             <ion-icon slot="start" :icon="arrowForwardCircleOutline" />
             {{ selecionada ? `Enviar para ${nomeDe(v, v.enviaPara)}` : 'Toque em uma carta' }}
           </ion-button>
-          <ion-button v-if="minhaVez && !v.pausada" fill="clear" color="light" size="small" expand="block" @click="darDica">
+          <ion-button
+            v-if="minhaVez && !v.pausada && v.fase === 'jogando'"
+            fill="clear"
+            color="light"
+            size="small"
+            expand="block"
+            @click="darDica"
+          >
             💡 Dica: qual carta passar?
           </ion-button>
         </div>
@@ -186,7 +193,9 @@ watch(
 
 /** Seleciona a carta sugerida pela dica (o jogador ainda precisa confirmar o envio). */
 function darDica() {
-  const carta = sugerirCarta(v.value?.minhaMao ?? []);
+  if (!v.value || v.value.fase !== 'jogando' || v.value.pausada) return;
+
+  const carta = sugerirCarta(v.value.minhaMao);
   if (carta) selecionada.value = carta.id;
 }
 
