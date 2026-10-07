@@ -99,6 +99,9 @@
             <ion-icon slot="start" :icon="arrowForwardCircleOutline" />
             {{ selecionada ? `Enviar para ${nomeDe(v, v.enviaPara)}` : 'Toque em uma carta' }}
           </ion-button>
+          <ion-button v-if="minhaVez && !v.pausada" fill="clear" color="light" size="small" expand="block" @click="darDica">
+            💡 Dica: qual carta passar?
+          </ion-button>
         </div>
 
         <!-- Minha mão -->
@@ -143,7 +146,7 @@ import { computed, onUnmounted, ref, watch } from 'vue';
 import CartaBaralho from '@/components/CartaBaralho.vue';
 import LetrasBurro from '@/components/LetrasBurro.vue';
 import StatusConexao from '@/components/StatusConexao.vue';
-import { grupoCompleto } from '@/game';
+import { grupoCompleto, sugerirCarta } from '@/game';
 import { nomeDe } from '@/session/descrever';
 import { useSessaoStore } from '@/stores/sessao';
 import { confirmar } from '@/ui/avisos';
@@ -180,6 +183,12 @@ watch(
     if (selecionada.value && !v.value?.minhaMao.some((c) => c.id === selecionada.value)) selecionada.value = null;
   },
 );
+
+/** Seleciona a carta sugerida pela dica (o jogador ainda precisa confirmar o envio). */
+function darDica() {
+  const carta = sugerirCarta(v.value?.minhaMao ?? []);
+  if (carta) selecionada.value = carta.id;
+}
 
 function escolher(id: string) {
   selecionada.value = selecionada.value === id ? null : id;
